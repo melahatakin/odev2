@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İlk Part</title>
+    <style>
+      button {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="inputNumber">Enter Number:</label>
+    <input type="text" id="inputNumber" name="inputNumber" />
+    <button onclick="Calculate()">Calculate</button>
+
+    <script>
+      function Calculate() {
+        var input = document.getElementById("inputNumber").value;
+        var resultNumber = parseFloat(input);
+
+        if (!isNaN(resultNumber)) {
+          var result = resultNumber * 1.8;
+          alert(result);
+        } else {
+          alert("Geçersiz Değer");
+        }
+      }
+    </script>
+  </body>
+</html>

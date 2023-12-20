@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculater</title>
+    <style>
+      button {
+        margin-bottom: 10px;
+        margin-right: 50px;
+      }
+      input {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="input1">Number 1:</label>
+    <input type="text" id="input1" />
+
+    <label for="input2">Number 2:</label>
+    <input type="text" id="input2" />
+
+    <div>
+      <button onclick="toplama()">Toplama</button>
+      <button onclick="cikarma()">Çıkarma</button>
+    </div>
+
+    <div>
+      <button onclick="carpma()">Çarpma</button>
+      <button onclick="bolme()">Bölme</button>
+    </div>
+
+    <script>
+      function toplama() {
+        buttonClick("topla");
+      }
+
+      function cikarma() {
+        buttonClick("cikar");
+      }
+
+      function carpma() {
+        buttonClick("carp");
+      }
+
+      function bolme() {
+        buttonClick("bol");
+      }
+
+      function buttonClick(takeAction) {
+        var num1 = parseFloat(document.getElementById("input1").value);
+        var num2 = parseFloat(document.getElementById("input2").value);
+
+        if (isNaN(num1) || isNaN(num2)) {
+          alert("valid number not entered!");
+          return;
+        }
+
+        var result;
+
+        switch (takeAction) {
+          case "topla":
+            result = num1 + num2;
+            break;
+          case "cikar":
+            result = num1 - num2;
+            break;
+          case "carp":
+            result = num1 * num2;
+            break;
+          case "bol":
+            if (num2 !== 0) {
+              result = num1 / num2;
+            } else {
+              alert("not divisible by zero");
+              return;
+            }
+            break;
+          default:
+            alert("Invalid transaction.");
+            return;
+        }
+        result = result.toFixed(5);
+
+        alert("Result: " + result);
+      }
+    </script>
+  </body>
+</html>
